@@ -14,6 +14,10 @@ public class App {
         System.out.println(visitor.getGreeting());
         System.out.println(visitor.getGoodSpecialGreeting());
         System.out.println(visitor.getBadSpecialGreeting());
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DanceConfig.class);
+        Dancer dancer = context.getBean("dancer" , Dancer.class);
+        System.out.println(dancer.getStyle());
     }
 
     private static ClassPathXmlApplicationContext getXMLContext(){
