@@ -3,7 +3,7 @@ package com;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("visiterGreet")
+@Component
 public class VisitorGreet implements Greet{
 
     final SpecialGreet goodGreet;
