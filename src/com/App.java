@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     public static void main(String[] args) {
+
         //XML configuration
 //        Greet visitor = getXMLContext().getBean("visitorGreet" , Greet.class);
 
@@ -14,7 +15,10 @@ public class App {
         System.out.println(visitor.getGreeting());
         System.out.println(visitor.getGoodSpecialGreeting());
         System.out.println(visitor.getBadSpecialGreeting());
+        System.out.println("Name: " + visitor.getName());
+        System.out.println("Email: " + visitor.getEmail());
 
+        //beans in config class
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DanceConfig.class);
         Dancer dancer = context.getBean("dancer" , Dancer.class);
         System.out.println(dancer.getStyle());

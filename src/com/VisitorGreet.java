@@ -1,13 +1,18 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class VisitorGreet implements Greet{
 
-    final SpecialGreet goodGreet;
-    final SpecialGreet badGreet;
+    private final SpecialGreet goodGreet;
+    private final SpecialGreet badGreet;
+    @Value("${foo.name}")
+    private String name;
+    @Value("${foo.email}")
+    private String email;
 
     public VisitorGreet(@Qualifier("goodGreet") SpecialGreet goodGreet, @Qualifier("badGreet") SpecialGreet badGreet){
         this.goodGreet = goodGreet;
@@ -27,5 +32,15 @@ public class VisitorGreet implements Greet{
     @Override
     public String getBadSpecialGreeting() {
         return badGreet.getSpecialTreat();
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
     }
 }
